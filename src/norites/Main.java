@@ -79,6 +79,7 @@ public class Main extends BasicGame {
 	@Override
 	public void update(GameContainer gc, int delta) throws SlickException {
 		/* 4. ゲームの内部状態（変数等）の更新に関するルーチン
+		 * 
 		（ゲームのロジックや入力に関する本体・メインループ） */
 		float px=x,py=y;
 		
