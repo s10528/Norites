@@ -54,14 +54,14 @@ public class Main extends BasicGame {
 		noripie = wait;
 		
 		try{
-			unko = new Image("D:/map1.bmp");
+			unko = new Image("./resource/map1.bmp");
 
-			tinko = new Image("D:/openspace2.bmp");
+			tinko = new Image("./resource/openspace2.bmp");
 			
 		}catch(Exception e){
 		}
 		
-		path = "D:/untitled.tmx";
+		path = "./resource/untitled.tmx";
 		System.out.println(path);
 		
 		try{
