@@ -14,7 +14,8 @@ import org.newdawn.slick.tiled.TiledMap;
 public class Main extends BasicGame {
 	/* 1. Main クラスまたはオブジェクトに所属するメンバー変数の宣言を書く所 */
 	float x = 180, y = 184;
-
+	float usax = 150, usay = 153;
+	int right = 1;
 	byte icount = 0;
 	boolean ismove = false;
 	static final float SPEED = 0.1f;
@@ -22,7 +23,7 @@ public class Main extends BasicGame {
 	private Animation noripie,walk,wait;
 	
 	String path =null;
-	Image unko, tinko;
+	Image unko, tinko,enemy;
 	
 
 	TiledMap map = null;
@@ -58,6 +59,7 @@ public class Main extends BasicGame {
 
 			tinko = new Image("./resource/openspace2.bmp");
 			
+			enemy = new Image("./resource/usatan.gif");
 		}catch(Exception e){
 		}
 		
@@ -88,9 +90,10 @@ public class Main extends BasicGame {
 		Input input = gc.getInput();
 		if (input.isKeyDown(input.KEY_LEFT)) {
 			x -= move;
-			
+			right = -1;
 		} else if (input.isKeyDown(input.KEY_RIGHT)) {
 			x += move;
+			right = 1;
 		}
 		if (input.isKeyDown(input.KEY_UP)) {
 			y -= move;
@@ -151,7 +154,9 @@ public class Main extends BasicGame {
 			
 			}
 	}
-		noripie.draw((int)x,(int)y);
+		noripie.draw((int)x+32*(-1*right),(int)y,right*64,64);
+		if(usax<=0){usax += 0.1;}else if(usax>=151){usax -= 0.1;}else
+		g.drawImage(enemy, usax, usay);
 	}
 
 	public static void main(String[] args) throws SlickException {
